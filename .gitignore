@@ -1,0 +1,22 @@
+logs
+target
+*.class
+/.idea
+/.idea_modules
+/.classpath
+/.project
+/.settings
+/RUNNING_PID
+
+# intellij idea
+*.log
+*.iml
+*.ipr
+*.iws
+.idea
+
+# other?
+.history
+.scala_dependencies
+.cache
+.cache-main
