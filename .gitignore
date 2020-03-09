@@ -21,6 +21,16 @@ target
 .cache
 .cache-main
 
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+.history
+.cache
+.lib/
+
 # User-specific stuff
 .idea/**/workspace.xml
 .idea/**/tasks.xml
