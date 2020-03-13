@@ -1,0 +1,45 @@
+html, body {
+  height: 100%;
+}
+
+.login-form {
+  height: 318.5px;
+  width: auto;
+  margin: auto;
+  padding-top: 200px;
+}
+.login-form form {
+  margin: 0 auto;
+  width: 300px
+}
+
+.login-form input {
+  margin-bottom: 3px;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #CCC
+}
+
+.login-form form button {
+  padding: 10px
+}
+
+.login-form form label {
+  cursor: pointer
+}
+
+#form-switch {
+  display: none
+}
+
+#register-form {
+  display: none
+}
+
+#form-switch:checked~#register-form {
+  display: block
+}
+
+#form-switch:checked~#login-form {
+  display: none
+}
