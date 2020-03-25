@@ -1,45 +1,65 @@
 html, body {
+  margin:0;
+  padding:0;
   height: 100%;
+  background: #FCFAF4;
 }
 
 .login-form {
-  height: 318.5px;
-  width: auto;
+  height: auto;
+  width: 320px; /*compensate for input border */
   margin: auto;
-  padding-top: 200px;
+  margin-top:220px;
+  padding-bottom:30px;
+  display:block;
+  background: rgb(248, 202, 202);
+  border-radius:50px;
+}
+.login-form .avatar-pic {
+  width:auto;
+  height:auto;
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .login-form form {
-  margin: 0 auto;
-  width: 300px
+  width: 250px;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+
 }
 
 .login-form input {
   margin-bottom: 3px;
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   width: 100%;
-  border: 1px solid #CCC
+  border: 1px solid #CCC;
+  border-radius: 8px;
 }
 
 .login-form form button {
-  padding: 10px
+  padding: 10px;
+  border-radius:8px;
 }
 
 .login-form form label {
-  cursor: pointer
+  cursor: pointer;
 }
 
 #form-switch {
-  display: none
+  display: none;
 }
 
 #register-form {
-  display: none
+  display: none;
 }
 
 #form-switch:checked~#register-form {
-  display: block
+  display: block;
 }
 
 #form-switch:checked~#login-form {
-  display: none
+  display: none;
 }
