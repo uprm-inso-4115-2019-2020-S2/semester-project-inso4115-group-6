@@ -3,54 +3,77 @@
 @main("Cash For Chores") {
 
     <div class="page-container">
-        <div class="profile-grid">
-            <div class="user-photo">
-                <img id="userPhoto" src="@routes.Assets.versioned("images/profile_img_placeholder.png")"/>
-                <div class="center">
-                    <input type='file' hidden="hidden"/>
-                    <button class="buttons" type="button" id="btnChangePic">Update</button>
-                    <span id="picChosen" hidden="hidden"></span>
-                    <button class="buttons" type="button" id="btnRemovePhoto">Remove</button>
-                </div>
-            </div>
-            <div class="user-info">
-                <table>
-                    <tr>
-                        <th>Contact Information</th>
-                    </tr>
-                    <tr>
-                        <th>Name</th>
-                        <th>Location</th>
-                    </tr>
-                    <tr>
-                        <td>Jane Doe</td>
-                        <td>Mayagüez, Puerto Rico</td>
-                    </tr>
-                    <tr>
-                        <th>Phone</th>
-                        <th>Email</th>
-                    </tr>
-                    <tr>
-                        <td>(787)-123-4567</td>
-                        <td>email.com</td>
-                    </tr>
 
-                </table>
-            </div>
-            <div class="services-description">
-                <label id="user-services-description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
+        <div class="topnav">
+            <form>
+                <label> 
+                    <img align="center" src="@routes.Assets.versioned("images/logo.png")"/>
+                    <input type="text" placeholder="Search for available services...">
                 </label>
-            </div>
-            <div class="services-photos">
-                <div class="add-icon">
-                    <img src="@routes.Assets.versioned("stylesheets/add-icon.png")">
+            </form>
+        </div>
+
+        <div class="grid-container">
+            <div class="profile-grid">
+                <div class="user-photo">
+                    <img id="userPhoto" src="@routes.Assets.versioned("images/profile_img_placeholder.png")"/>
+                    <div>
+                        <input type='file' hidden="hidden"/>
+                        <button class="buttons" type="button" id="btnChangePic">Update</button>
+                        <span id="picChosen" hidden="hidden"></span>
+                        <button class="buttons" type="button" id="btnRemovePhoto">Remove</button>
+                    </div>
+
                 </div>
-                <div>photos grid</div>
+                <div class="user-info">
+                    <table>
+                        <tr>
+                            <th>Contact Information</th>
+                        </tr>
+                        <tr>
+                            <th>Name</th>
+                            <th>Location</th>
+                        </tr>
+                        <tr>
+                            <td>Jane Doe</td>
+                            <td>Mayagüez, Puerto Rico</td>
+                        </tr>
+                        <tr>
+                            <th>Phone</th>
+                            <th>Email</th>
+                        </tr>
+                        <tr>
+                            <td>(787)-123-4567</td>
+                            <td>email.com</td>
+                        </tr>
+
+                    </table>
+                </div>
+                <div class="services-description">
+                    <label id="user-services-description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                        culpa qui officia deserunt mollit anim id est laborum.
+                    </label>
+                </div>
+                <div class="services-photos">
+                    <div class="add-icon">
+                        <img src="@routes.Assets.versioned("stylesheets/add-icon.png")">
+                    </div>
+                    <div class="divider"></div>
+                    <div class="servPhoto-grid-container">
+                        <div class="servPhoto-grid">
+                            <div class="services-photo-1">1</div>
+                            <div class="services-photo-2">2</div>
+                            <div class="services-photo-3">3</div>
+                            <div class="services-photo-4">4</div>
+                            <div class="services-photo-5">5</div>
+                            <div class="services-photo-6">6</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
