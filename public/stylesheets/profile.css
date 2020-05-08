@@ -1,0 +1,63 @@
+.profile{
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-btn button {
+  color: black; /* White text */
+  width: 50%;
+  padding: 25px 25px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: right; /* Float the buttons side by side */
+}
+
+* { box-sizing: border-box; }
+
+/* Column container */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Sidebar/left column */
+.main {
+  flex: 30%; /* Set the width of the sidebar */
+  background-color: #f1f1f1; /* Grey background color */
+  padding: 20px; /* Some padding */
+}
+
+/* Main column */
+.side{
+  flex: 70%; /* Set the width of the main content */
+  background-color: white; /* White background color */
+  padding: 20px; /* Some padding */
+}
+
+.cover {
+  text-align: center;
+  background: #E9EBEE;
+  color: white;
+  overflow: hidden;
+}
+
+.cover img{
+   align: center;
+   margin-top: 6%;
+}
+
+.checked { color: orange; }
+
+.block {
+  background: #E9EBEE;
+  color: white;
+}
+
+.right-side-block
+ {
+  padding: 300px;
+  background: #5F9EA0;
+  color: white;
+  margin-left: 600px;
+  height: 200%;
+}

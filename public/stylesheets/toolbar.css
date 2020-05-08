@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  background-color: #FFCC67;
+  position: relative;
+  width: 100%;
+}
+
+.active img{
+    float: left;
+    position: relative;
+}
+
+.topnav a {
+  color: #f2f2f2;
+  width: 100%;
+  min-width:980px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
+  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.topnav h {
+  color: #f2f2f2;
+  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.topnav input[type=text] {
+  float: right;
+  padding: 10px;
+  border: none;
+  margin-top: 1px;
+  margin-right: 25px;
+  font-size: 15px;
+  border-radius: 25px;
+  width: 15%;
+  margin-top: 1.95%;
+  position: relative;
+}
+
+.toolbar-btn{
+  background-color: #FFCC67;
+  color: white;
+  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 25px;
+  margin-top: 10%;
+  border: none;
+}
+
+.settings-dropdown {
+  position: relative;
+  display: inline-block;'
+}
+
+.settings-content{
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 175px;
+  max-width: 175px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.settings-content a{
+  float: none;
+  color: black;
+  padding: 10px;
+  padding-top: 10px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Change color of dropdown links on hover */
+.settings-content a:hover {background-color: #ddd;}
+
+.settings-content a{
+font-size: 15px;
+}
+
+/* Show the dropdown menu on hover */
+.settings-dropdown:hover .settings-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.topnav a:hover, .settings-dropdown:hover .toolbar-btn {
+    background-color: #FFC040;
+    min-width: 175px;
+    max-width: 175px;
+}

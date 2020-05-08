@@ -1,181 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Profile Settings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body style="background-color:#E9EBEE;">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.topnav {
-  background-color: #FFCC67;
-  position: relative;
-  width: 100%;
-}
-
-.active img{
-    float: left;
-    position: relative;
-}
-
-.topnav a {
-  color: #f2f2f2;
-  width: 100%;
-  min-width:980px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 25px;
-  padding: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.topnav h {
-  color: #f2f2f2;
-  padding: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.topnav input[type=text] {
-  float: right;
-  padding: 10px;
-  border: none;
-  margin-top: 1px;
-  margin-right: 25px;
-  font-size: 15px;
-  border-radius: 25px;
-  width: 15%;
-  margin-top: 1.95%;
-  position: relative;
-}
-
-.toolbar-btn{
-  background-color: #FFCC67;
-  color: white;
-  padding: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 25px;
-  margin-top: 10%;
-  border: none;
-}
-
-.settings-dropdown {
-  position: relative;
-  display: inline-block;'
-}
-
-.settings-content{
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 175px;
-  max-width: 175px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.settings-content a{
-  float: none;
-  color: black;
-  padding: 10px;
-  padding-top: 10px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-/* Change color of dropdown links on hover */
-.settings-content a:hover {background-color: #ddd;}
-
-/* Show the dropdown menu on hover */
-.settings-dropdown:hover .settings-content {display: block;}
-
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.topnav a:hover, .settings-dropdown:hover .toolbar-btn {
-    background-color: #FFC040;
-    min-width: 175px;
-    max-width: 175px;
-}
-
-. user-settings {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #FFC040;
-
-}
-
-
-
-</style>
-<style>
-
-.Main-bar{
-position:relative;
-bottom: 42px;
-right: 20px;
-width: 105%;
-background-color: #FFCC67;
-border-radius: 25px;
-color:#f2f2f2;
-text-align:center;
-
-}
-
-
-.main {
-  position:relative;
-  left: 400px;
-  top: 150px;
-  float: center;
-  padding: 20px;
-  width: 50%;
-  background-color: #99A09F;
-  border-radius: 25px;
-
-}
-
-
-
-</style>
-
+<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/toolbar.css")">
+<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/user settings.css")">
 </body>
 
 <div class="topnav">
-    <h class="active" href="#home"><img class="picture" src="https://i.imgur.com/E7mi2px.png" style=width="75"
-                                        height="75"></h>
-    <a href="#news" class="toolbar-btn"><img class="picture" src="https://i.imgur.com/2dKKW6E.png" style=width="40"
-                                             height="30"> Home</a>
-    <a href="#news" class="toolbar-btn"><img class="picture" src="https://i.imgur.com/nf99dG9.png" style=width="40"
-                                             height="30"> <a href="profile.scala.html">Profile</a>
-        <a href="#contact" class="toolbar-btn"><img class="picture" src="https://i.imgur.com/4CDBTIJ.png"
-                                                    style=width="40"
-                                                    height="30"> Messages</a>
+    <h class="active" href="#home"> <img class="picture" src="https://i.imgur.com/E7mi2px.png" style=width="75"
+                                         height="75"> </h>
+    <a href="#news" class = "toolbar-btn"><img class="picture" src="https://i.imgur.com/2dKKW6E.png" style=width="40"
+                                               height="30"> Home</a>
+    <a href="@routes.ProfileController.profile()" class = "toolbar-btn"><img class="picture" src="https://i.imgur.com/nf99dG9.png" style=width="40"
+                                                                             height="30"> Profile</a>
+    <a href="#contact" class = "toolbar-btn"><img class="picture" src="https://i.imgur.com/4CDBTIJ.png" style=width="40"
+                                                  height="30"> Messages</a>
 
-        <div class="settings-dropdown">
-            <button class="toolbar-btn"><img class="picture" src="https://i.imgur.com/d7OZpX3.png" style=width="40"
-                                             height="30"> Settings <i class="fa fa-caret-down"></i></button>
-            <div class="settings-content">
-                <a href="#"> Logout </a>
-                <p><a href="profilesettings.scala.html">Profile settings</a></p>
+    <div class="settings-dropdown">
+        <button class="toolbar-btn" > <img class="picture" src="https://i.imgur.com/d7OZpX3.png" style=width="40"
+                                           height="30"> Settings <i class="fa fa-caret-down"></i></button>
+        <div class = "settings-content">
+            <a href = "#logout"> Logout </a>
+            <p><a href= "@routes.ProfileSettingsController.profileSettings()"> Profile Settings </a></p>
 
-            </div>
         </div>
+    </div>
 
-        <input type="text" class="search " placeholder="Search...">
+    <input type="text" class="search " placeholder="Search...">
 </div>
 
 <div class="main">
-    <div class="Main-bar">
+    <div class="main-bar">
         <h1>User settings</h1>
     </div>
     <h2 style="color:#f2f2f2">Upload/Change profile picture</h2>
