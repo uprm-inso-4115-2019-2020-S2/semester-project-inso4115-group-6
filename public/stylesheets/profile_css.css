@@ -1,0 +1,96 @@
+.center{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    justify-content: center;
+    align-content: center;
+}
+
+.page-container{
+    background-size: auto;
+    justify-content: center;
+}
+
+.profile-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    grid-template-areas:
+    "userPhoto userInfo"
+    "servicesDescription servicesDescription"
+    "servicesPhotos servicesPhotos";
+    padding: 10px;
+}
+
+.profile-grid *{
+    border-radius:25px;
+    padding: 5px;
+}
+
+.user-photo{
+    grid-area: userPhoto;
+    background-color: #6c757d;
+    justify-self: left;
+}
+
+.user-photo img {
+    float:left;
+    width: 140px;
+    border-radius: 50%;
+    border: 2px solid #8fd19e;
+}
+
+.user-photo img:hover {
+    box-shadow: 0 0 3px 2px #95999c;
+}
+
+.buttons{
+    padding: 8px;
+    color: white;
+    background-color: #8fd19e;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons:hover{
+    background-color: #95999c;
+}
+
+.user-info{
+    grid-area: userInfo;
+    background-color: rosybrown;
+}
+
+.user-info table {
+    float: left;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.user-info th {
+    text-align: left;
+}
+
+.services-description{
+    grid-area: servicesDescription;
+    background-color: #8fd19e;
+}
+
+.services-photos{
+    grid-area: servicesPhotos;
+    background-color: #95999c;
+}
+
+.add-icon img{
+    border-radius: 50px;
+    cursor: pointer;
+    float:right;
+    height: 25px;
+    width: 25px;
+}
+
+.add-icon img:hover{
+    box-shadow: #95999c;
+    background-color: #8fd19e;
+}
+
