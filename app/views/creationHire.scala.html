@@ -1,0 +1,72 @@
+<html>
+
+    <head>
+        <title>Cash For Chores</title>
+        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/acc_creation.css")">
+    </head>
+
+    <body>
+        <div class="hero">
+
+
+            <div class="wrapper">
+                <div class="logo">
+                    <img src="@routes.Assets.versioned("images/CashBackground.jpg")" style="width: 200px;" alt="">
+                </div>
+
+                <div class="gettingstarted">
+                    <h1>Getting Started</h1>
+                    <a href="#">Already have an account?</a>
+                </div>
+
+                <div class="typeOfAccount">
+
+                    <div id="btn"> </div>
+                    <button type= "button" class= "toggle-btn" onclick="freelancer()">Work As Freelancer</button>
+                    <button type= "button" class= "toggle-btn" onclick="hire()">Hire For Project</button>
+                </div>
+
+                <form id="hire" action="inputgroup">
+                    <div class="information">
+
+                        <input type="text"  class="input_field"
+                        placeholder="Enter First Name" required>
+
+                        <input type="text"  class="input_field"
+                        placeholder="Enter Last Name" required>
+
+                        <input type="text"  class="input_field"
+                        placeholder="XXX-XXX-XXXX" required>
+
+                        <input type="text" class="input_field"
+                        placeholder="Enter Email" required>
+
+                        <input type="text"  class="input_field"
+                        placeholder="Enter Password" required>
+
+                        <button type="submit" class="next-btn" >Next </button>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+        <script>
+
+        var z = document.getElementById("btn");
+
+        function hire(){
+            z.style.left = "150px";
+            window.location.href = "http://localhost:9000/creation/hire"
+        }
+
+        function freelancer(){
+            z.style.left = "0px";
+            window.location.href = "http://localhost:9000/creation/work"
+        }
+
+    </script>
+
+    </body>
+</html>
