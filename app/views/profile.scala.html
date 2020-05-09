@@ -6,7 +6,7 @@
 
         <div class="topnav">
             <form>
-                <label> 
+                <label>
                     <img align="center" src="@routes.Assets.versioned("images/logo.png")"/>
                     <input type="text" placeholder="Search for available services...">
                 </label>
@@ -20,6 +20,15 @@
                     <div>
                         <input type='file' hidden="hidden"/>
                         <button class="buttons" type="button" id="btnChangePic">Update</button>
+                        @helper.form(action = routes.ProfileController.upload, Symbol("enctype") -> "multipart/form-data") {
+
+                            <input type="file" name="picture">
+
+                            <p>
+                                <input type="submit">
+                            </p>
+
+                        }
                         <span id="picChosen" hidden="hidden"></span>
                         <button class="buttons" type="button" id="btnRemovePhoto">Remove</button>
                     </div>
@@ -65,12 +74,9 @@
                     <div class="divider"></div>
                     <div class="servPhoto-grid-container">
                         <div class="servPhoto-grid">
-                            <div class="services-photo-1">1</div>
-                            <div class="services-photo-2">2</div>
-                            <div class="services-photo-3">3</div>
-                            <div class="services-photo-4">4</div>
-                            <div class="services-photo-5">5</div>
-                            <div class="services-photo-6">6</div>
+@*                        @for(photo <- photos){*@
+@*                            <img class="d-block w-100" src="photo">*@
+@*                            }*@
                         </div>
                     </div>
                 </div>
