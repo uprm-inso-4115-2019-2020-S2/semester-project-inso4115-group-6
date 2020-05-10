@@ -1,4 +1,4 @@
-@()
+<!-- @()
 
 @main("Login") {
 <div class="login-form">
@@ -7,9 +7,9 @@
     </div>
     <div class="login-text">
         <h4>Log in</h4>
-    </div>
+    </div> -->
     <!-- <input type='checkbox' id='form-switch'> -->
-    <form id='login-form' action="" method='post'>
+    <!-- <form id='login-form' action="" method='post'>
         <input type="text" placeholder="Email Address" required>
         <input type="password" placeholder="Password" required>
         <button class="button-log"type='submit'>Log in</button>
@@ -17,9 +17,9 @@
             <span>or</span>
         </div>
         <button class="button"type='submit'>Log in with Google</button>
-        <button class="button"type='submit'>Log in with Facebook</button>
+        <button class="button"type='submit'>Log in with Facebook</button> -->
         <!-- <label for='form-switch'><span>Register</span></label> -->
-    </form>
+    <!-- </form> -->
 
     <!-- <form id='register-form' action="" method='post'>
         <input type="text" placeholder="Username" required>
@@ -29,5 +29,79 @@
         <button type='submit'>Register</button>
         <label for='form-switch'>Already Member ? Sign In Now..</label>
     </form> -->
-</div>
-}
+<!-- </div>
+} -->
+
+<html>
+
+    <head>
+        <title>Cash For Chores</title>
+        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/acc_login.css")">
+    </head>
+
+    <body>
+        <div class="hero">
+
+
+            <div class="wrapper">
+                <div class="logo">
+                    <img src="@routes.Assets.versioned("images/CashBackground.jpg")" style="width: 200px;" alt="">
+                </div>
+
+                <div class="gettingstarted">
+                    <h1>Getting Started</h1>
+                    <a style="font-size: 15px;" href="@routes.CreationController.hire()">Don't have an account? Register here</a>
+                </div>
+
+                <!-- <div class="typeOfAccount">
+
+                    <div id="btn"> </div>
+                    <button type= "button" class= "toggle-btn" onclick="freelancer()">Work As Freelancer</button>
+                    <button type= "button" class= "toggle-btn" onclick="hire()">Hire For Project</button>
+                </div> -->
+
+                <!-- <form id="hire" action="inputgroup"> -->
+                <form id="login" action="">
+                    <div class="information">
+
+                        <!-- <input type="text"  class="input_field"
+                        placeholder="Enter First Name" required>
+
+                        <input type="text"  class="input_field"
+                        placeholder="Enter Last Name" required>
+
+                        <input type="text"  class="input_field"
+                        placeholder="XXX-XXX-XXXX" required> -->
+
+                        <input style="margin-top: 10px;" type="text" class="input_field"
+                        placeholder="Enter Email" required>
+
+                        <input type="text"  class="input_field"
+                        placeholder="Enter Password" required>
+
+                        <button type="submit" class="next-btn">Next </button>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+        <!-- <script>
+
+        var z = document.getElementById("btn");
+
+        function hire(){
+            z.style.left = "150px";
+            window.location.href = "http://localhost:9000/creation/hire"
+        }
+
+        function freelancer(){
+            z.style.left = "0px";
+            window.location.href = "http://localhost:9000/creation/work"
+        }
+
+    </script> -->
+
+    </body>
+</html>
