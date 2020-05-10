@@ -1,10 +1,14 @@
 package controllers
 
+import java.io.File
 import java.nio.file.Paths
+import java.util.Locale
 
 import javax.inject._
+import models.userModel
 import play.api._
 import play.api.mvc._
+import play.filters._
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
@@ -16,25 +20,36 @@ class ProfileController @Inject()(val controllerComponents: ControllerComponents
   /**
    * Action to create Profile HTML file
    */
-  def profile() = Action { implicit request: Request[AnyContent] =>
+  def profile() = Action { implicit request  =>
     Ok(views.html.profile())
   }
 
-  def upload = Action(parse.multipartFormData) { request =>
-    request.body
-      .file("picture")
-      .map { picture =>
-        // only get the last part of the filename
-        // otherwise someone can send a path like ../../home/foo/bar.txt to write to other files on the system
-        val filename    = Paths.get(picture.filename).getFileName
+  def update = Action(parse.multipartFormData) {
+    implicit request =>
+    request.body.file("picture").map { picture =>
+        val filename    = "ProfilePic.png"
+        val filename1    = Paths.get(picture.filename).getFileName
         val fileSize    = picture.fileSize
         val contentType = picture.contentType
-        picture.ref.copyTo(Paths.get(s"/public/images/$filename"), replace = true)
-        Ok("File uploaded")
-      }
+//        var replace =  picture.contentType.contains("image/png")
+
+        picture.ref.copyTo(Paths.get(s"home/jd/semester-project-inso4115-group-6/public/images/$filename"), replace = true)
+        Redirect(routes.ProfileController.profile())
+        }
       .getOrElse {
-        Ok("ERROR404")
+        Redirect(routes.ProfileController.profile()).flashing("error" -> "Missing file")
       }
   }
 
+  def upload=  Action(parse.multipartFormData) {
+    implicit request =>
+      request.body.file("picture").map { picture =>
+        val filename = "Pic1"
+        val contentType = picture.contentType.get
+        picture.ref.moveTo(new File("home/jd/semester-project-inso4115-group-6/public/images/" + filename))
+        Redirect(routes.ProfileController.profile())
+      }.getOrElse {
+        Ok("ERROR404")
+      }
+  }
 }

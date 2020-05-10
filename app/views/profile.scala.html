@@ -1,4 +1,4 @@
-@()
+@()(implicit request: RequestHeader)
 
 @main("Cash For Chores") {
 
@@ -16,18 +16,17 @@
         <div class="grid-container">
             <div class="profile-grid">
                 <div class="user-photo">
-                    <img id="userPhoto" src="@routes.Assets.versioned("images/profile_img_placeholder.png")"/>
+                    <img id="userPhoto" src="@routes.Assets.versioned("images/ProfilePic.png")"/>
                     <div>
                         <input type='file' hidden="hidden"/>
                         <button class="buttons" type="button" id="btnChangePic">Update</button>
-                        @helper.form(action = routes.ProfileController.upload, Symbol("enctype") -> "multipart/form-data") {
 
+@*                        here is where the adding starts*@
+                        @helper.form(action = routes.ProfileController.update, Symbol("enctype") -> "multipart/form-data") {
                             <input type="file" name="picture">
-
                             <p>
                                 <input type="submit">
                             </p>
-
                         }
                         <span id="picChosen" hidden="hidden"></span>
                         <button class="buttons" type="button" id="btnRemovePhoto">Remove</button>
@@ -69,7 +68,14 @@
                 </div>
                 <div class="services-photos">
                     <div class="add-icon">
-                        <img src="@routes.Assets.versioned("stylesheets/add-icon.png")">
+                     @helper.form(action = routes.ProfileController.upload, Symbol("enctype") -> "multipart/form-data") {
+                            @helper.CSRF.formField
+                            <input type="file" name="picture">
+                            <p>
+                                <input type="submit">
+                            </p>
+                        }
+
                     </div>
                     <div class="divider"></div>
                     <div class="servPhoto-grid-container">
