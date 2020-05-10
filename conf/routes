@@ -3,6 +3,9 @@
 # https://www.playframework.com/documentation/latest/ScalaRouting
 # ~~~~
 
+#This is acting as the login page for testing logout feature. It should be changed later to the app's login controller
+GET     /                                 controllers.HomeController.index()
+
 # An example controller showing a sample home page
 GET     /profile                           controllers.ProfileController.profile()
 
@@ -11,3 +14,5 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 #Profile settings
 GET     /profile-settings                           controllers.ProfileSettingsController.profileSettings()
+
+GET     /logout                     controllers.ProfileController.logout()
