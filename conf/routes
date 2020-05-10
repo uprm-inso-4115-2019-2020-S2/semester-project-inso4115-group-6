@@ -4,7 +4,13 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.ProfileController.profile()
+
+GET     /creation/work                     controllers.CreationController.work()
+POST    /creation/work                     controllers.CreationController.createUser()
+
+GET     /creation/hire                     controllers.CreationController.hire()
+
+GET     /profile                           controllers.ProfileController.profile()
 
 # Login page route
 GET     /login                      controllers.LoginController.login()
