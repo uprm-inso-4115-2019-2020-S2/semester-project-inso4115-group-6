@@ -16,20 +16,25 @@
         <div class="grid-container">
             <div class="profile-grid">
                 <div class="user-photo">
-                    <img id="userPhoto" src="@routes.Assets.versioned("images/ProfilePic.png")"/>
+                    <img id="userPhoto" src="@routes.Assets.versioned("images/profile-pictures/ProfilePic.png")"/>
                     <div>
                         <input type='file' hidden="hidden"/>
-                        <button class="buttons" type="button" id="btnChangePic">Update</button>
 
 @*                        here is where the adding starts*@
-                        @helper.form(action = routes.ProfileController.update, Symbol("enctype") -> "multipart/form-data") {
+                        @helper.form(action = routes.ProfileController.updateProfilePic, Symbol("enctype") -> "multipart/form-data") {
+                            @helper.CSRF.formField
                             <input type="file" name="picture">
                             <p>
-                                <input type="submit">
+                                <button class="buttons" type="submit" id="btnChangePic">Update</button>
                             </p>
                         }
+                        @helper.form(action = routes.ProfileController.profilePicDelete(), Symbol("enctype") -> "multipart/form-data") {
+                            @helper.CSRF.formField
+                            <button class="buttons" type="submit" id="btnRemovePhoto" >Remove</button>
+                        }
+
+
                         <span id="picChosen" hidden="hidden"></span>
-                        <button class="buttons" type="button" id="btnRemovePhoto">Remove</button>
                     </div>
 
                 </div>
@@ -66,21 +71,21 @@
                         culpa qui officia deserunt mollit anim id est laborum.
                     </label>
                 </div>
+
                 <div class="services-photos">
                     <div class="add-icon">
                      @helper.form(action = routes.ProfileController.upload, Symbol("enctype") -> "multipart/form-data") {
-                            @helper.CSRF.formField
-                            <input type="file" name="picture">
+                         @helper.CSRF.formField
+                            <input name="picture" type="file">
                             <p>
                                 <input type="submit">
                             </p>
                         }
-
                     </div>
                     <div class="divider"></div>
                     <div class="servPhoto-grid-container">
                         <div class="servPhoto-grid">
-@*                        @for(photo <- photos){*@
+@*                        for(photo <- photos){*@
 @*                            <img class="d-block w-100" src="photo">*@
 @*                            }*@
                         </div>

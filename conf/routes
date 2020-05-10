@@ -10,7 +10,6 @@ GET     /                           controllers.ProfileController.profile()
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 GET     /profile/{id}               controllers.ProfileController.profile()
 
-+nocsrf
-POST    /update                     controllers.ProfileController.update
-+nocsrf
-POST    /upload                     controllers.ProfileController.upload
+POST    /updateProfilePicture                     controllers.ProfileController.updateProfilePic
+POST    /uploadPicture                            controllers.ProfileController.upload
+POST    /deleteProfilePicture                     controllers.ProfileController.profilePicDelete
