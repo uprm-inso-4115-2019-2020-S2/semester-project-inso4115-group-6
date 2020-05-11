@@ -14,7 +14,7 @@ GET     /profile                           controllers.ProfileController.profile
 
 # Login page route
 GET     /login                      controllers.LoginController.login()
-POST    /validateForm               controllers.LoginController.validateLoginUser()
+POST    /login               controllers.LoginController.validateLoginUser()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

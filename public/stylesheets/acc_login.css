@@ -21,20 +21,9 @@ html, body, footer {
     margin: 5px;
 }
 
-input#email{
-    width: 70%;
-    margin-right: 37px;
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #999;
-    outline: none;
-    background: transparent;
-}
-
-input#password{
+.input_field{
     width: 70%;
     padding: 10px;
-    margin-right: 37px;
     margin-bottom: 20px;
     border-radius: 4px;
     border: 1px solid #999;
@@ -45,9 +34,8 @@ input#password{
 .wrapper{
     display: inline-block;
     width: 380px;
-    height: auto; /*was 698px*/
+    height: auto;
     margin-top: 20px;
-    padding-bottom: 20px;
     position: relative;
     text-align: center;
     border-radius: 20px;
@@ -56,24 +44,24 @@ input#password{
     overflow: hidden;
 }
 
-/* .typeOfAccount{
+.typeOfAccount{
     width: 320px;
     height: 50px;
     margin: 30px auto;
     position: relative;
     box-shadow: 0 0 10px 9px #FAF677;
     border-radius: 30px;
-} */
+}
 
 
-/* .toggle-btn{
+.toggle-btn{
     padding: 15px 25px;
     cursor: pointer;
     background: transparent;
     border: 0;
     outline: none;
     position: relative;
-} */
+}
 
 #btn{
     top:0;
@@ -105,8 +93,13 @@ input#password{
     border-radius: 30px;
 }
 
-.error {
+.errors {
     font-family: Arial;
     color: red;
     font-size: 9px;
+}
+
+input#email.input_field {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

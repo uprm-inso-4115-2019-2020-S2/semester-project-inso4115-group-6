@@ -15,7 +15,7 @@ class LoginController @Inject()(cc : MessagesControllerComponents) extends Messa
 
   val userFormData = Form(mapping(
       "email" -> email,
-      "password" -> nonEmptyText(8))(User.apply)(User.unapply))
+      "password" -> text(minLength = 8))(User.apply)(User.unapply))
 
   /**
    * Action to create Login HTML file
