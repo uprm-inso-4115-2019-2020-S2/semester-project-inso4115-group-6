@@ -3,13 +3,17 @@
 # https://www.playframework.com/documentation/latest/ScalaRouting
 # ~~~~
 
+#This is acting as the login page for testing logout feature. It should be changed later to the app's login controller
+GET     /                                 controllers.HomeController.index()
+
 # An example controller showing a sample home page
-GET     /                           controllers.ProfileController.profile()
+GET     /profile                           controllers.ProfileController.profile()
+GET     /assets/*file                      controllers.Assets.versioned(path="/public", file: Asset)
+GET     /profile-settings                  controllers.ProfileSettingsController.profileSettings()
+GET     /logout                            controllers.ProfileController.logout()
 
-# Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
-GET     /profile/{id}               controllers.ProfileController.profile()
+POST    /updateProfilePicture                     controllers.ProfileSettingsController.updateProfilePic
+#POST    /uploadPicture                            controllers.ProfileController.upload
+POST    /uploadCoverPicture                       controllers.ProfileSettingsController.upload
+POST    /deleteProfilePicture                     controllers.ProfileSettingsController.profilePicDelete
 
-POST    /updateProfilePicture                     controllers.ProfileController.updateProfilePic
-POST    /uploadPicture                            controllers.ProfileController.upload
-POST    /deleteProfilePicture                     controllers.ProfileController.profilePicDelete

@@ -24,24 +24,13 @@ class ProfileController @Inject()(val controllerComponents: ControllerComponents
     Ok(views.html.profile())
   }
 
-  def updateProfilePic = Action(parse.multipartFormData) {
-    request =>
-      request.body.file("picture").map { picture =>
-        val filename = "ProfilePic.png"
-        val fileSize = picture.fileSize
-        val contentType = picture.contentType
-        var replace = contentType.contains("image/png") || contentType.contains("image/jpeg")
-        picture.ref.copyTo(new File(s"public/images/profile-pictures/$filename"), replace)
-        Redirect(routes.ProfileController.profile()).flashing("Success" -> "Successful upload")
-      }
-        .getOrElse {
-          Redirect(routes.ProfileController.profile()).flashing("error" -> "Missing file")
-        }
+  //Ideally we want to use the app's login controller to redirect from the profile page to the login page
+  //It should be changed once login controller is available
+  //HomeController was used for testing this feature, but it is not important
+  def logout() = Action {
+    Redirect(routes.HomeController.index()).withNewSession
   }
-  def profilePicDelete = Action {
-    Ok("TODO")
 
-  }
   def upload = Action(parse.multipartFormData) { request =>
     request.body
       .file("picture")
@@ -56,5 +45,4 @@ class ProfileController @Inject()(val controllerComponents: ControllerComponents
         Redirect(routes.ProfileController.profile()).flashing("error" -> "Missing file")
       }
   }
-
 }
