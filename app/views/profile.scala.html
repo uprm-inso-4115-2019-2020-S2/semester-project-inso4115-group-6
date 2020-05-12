@@ -27,22 +27,22 @@
     <div class="grid-container">
         <div class="profile-grid">
             <div class="user-photo">
-                <img id="userPhoto" src="@routes.Assets.versioned("images/profile-pictures/ProfilePic.png")"/>
+                <img id="userPhoto" src="@routes.Assets.versioned("images/profile_img_placeholder.png")"/>
                 <div>
                     <input type='file' hidden="hidden"/>
 
-                    @*                        here is where the adding starts*@
-                    @helper.form(action = routes.ProfileController.updateProfilePic, Symbol("enctype") -> "multipart/form-data") {
-                        @helper.CSRF.formField
-                        <input type="file" name="picture">
-                        <p>
-                            <button class="buttons" type="submit" id="btnChangePic">Update</button>
-                        </p>
-                    }
-                    @helper.form(action = routes.ProfileController.profilePicDelete(), Symbol("enctype") -> "multipart/form-data") {
-                        @helper.CSRF.formField
-                        <button class="buttons" type="submit" id="btnRemovePhoto" >Remove</button>
-                    }
+@*                    *@@*                        here is where the adding starts*@
+@*                    @helper.form(action = routes.ProfileController.updateProfilePic, Symbol("enctype") -> "multipart/form-data") {*@
+@*                        @helper.CSRF.formField*@
+@*                        <input type="file" name="picture">*@
+@*                        <p>*@
+@*                            <button class="buttons" type="submit" id="btnChangePic">Update</button>*@
+@*                        </p>*@
+@*                    }*@
+@*                    @helper.form(action = routes.ProfileController.profilePicDelete(), Symbol("enctype") -> "multipart/form-data") {*@
+@*                        @helper.CSRF.formField*@
+@*                        <button class="buttons" type="submit" id="btnRemovePhoto" >Remove</button>*@
+@*                    }*@
 
 
                     <span id="picChosen" hidden="hidden"></span>
@@ -85,13 +85,13 @@
 
             <div class="services-photos">
                 <div class="add-icon">
-                @helper.form(action = routes.ProfileController.upload, Symbol("enctype") -> "multipart/form-data") {
-                    @helper.CSRF.formField
-                    <input name="picture" type="file">
-                    <p>
-                        <input type="submit">
-                    </p>
-                }
+@*                @helper.form(action = routes.ProfileController.upload, Symbol("enctype") -> "multipart/form-data") {*@
+@*                    @helper.CSRF.formField*@
+@*                    <input name="picture" type="file">*@
+@*                    <p>*@
+@*                        <input type="submit">*@
+@*                    </p>*@
+@*                }*@
                 </div>
                 <div class="divider"></div>
                 <div class="servPhoto-grid-container">
