@@ -1,3 +1,5 @@
+package DAO
+
 import java.sql.{Connection, DriverManager, PreparedStatement, ResultSet, SQLException}
 
 case class UsersDAO() {
@@ -22,15 +24,15 @@ case class UsersDAO() {
     case e: SQLException => e.printStackTrace();
   }
 
-  def confirmUser(uname: String,upass: String): Any ={
+  def confirmUser(email: String,upass: String): Any ={
     //prepared statement
     var checkUser: PreparedStatement = null;
     //actual query
     val checkString = "SELECT uid FROM " +
-      dbName + " WHERE username=? AND password=?"
+      dbName + " WHERE email=? AND password=?"
     checkUser = this.connection.prepareStatement(checkString)
     //feeding username and password to statement.
-    checkUser.setString(1, uname)
+    checkUser.setString(1, email)
     checkUser.setString(2, upass)
     val resultSet: ResultSet = checkUser.executeQuery()
     while(resultSet.next()){
@@ -42,7 +44,7 @@ case class UsersDAO() {
         return None
       }
     }
-    }
+  }
 
 
   def getUserById(uid: Int): Array[Any] ={

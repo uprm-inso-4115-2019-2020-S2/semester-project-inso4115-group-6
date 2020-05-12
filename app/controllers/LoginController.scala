@@ -1,11 +1,13 @@
 package controllers
 
+import HandlerLogin.UsersHandler
 import javax.inject._
 import play.api.data._
 import play.api.data.Forms
 import play.api.data.Forms._
 import play.api.mvc._
 import play.api.i18n._
+
 
 case class User(email: String, password: String)
 
@@ -49,7 +51,7 @@ class LoginController @Inject()(cc : MessagesControllerComponents) extends Messa
       val user = User(
         email = userData.email,
         password = userData.password)
-      Redirect(routes.LoginController.login())
+      Redirect(routes.ProfileController.profile())
     }
 
     val formValidationResult = userFormData.bindFromRequest
