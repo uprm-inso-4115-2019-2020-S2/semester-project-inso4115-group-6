@@ -1435,7 +1435,7 @@ Version 39:
       </properties>
     </profile>
 
-    <!-- allow simple creation of the site without any optional reports -->
+    <!-- allow simple creationWork of the site without any optional reports -->
     <profile>
       <id>site-basic</id>
       <properties>
