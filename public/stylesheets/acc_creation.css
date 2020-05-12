@@ -63,7 +63,7 @@ html, body, footer {
     position: relative;
 }
 
-#btn{
+#btnWork{
     top:0;
     left: 0;
     position: absolute;
@@ -71,7 +71,18 @@ html, body, footer {
     height: 50px;
     background: linear-gradient(to right, #32CD32 , #FAF677);
     border-radius: 30px;
-    transition: 0.5s;
+    transition: 10s;
+}
+
+#btnHire{
+    top:0;
+    left: 150px;
+    position: absolute;
+    width: 170px;
+    height: 50px;
+    background: linear-gradient(to right, #32CD32 , #FAF677);
+    border-radius: 30px;
+    transition: 10s;
 }
 
 .inputgroup{

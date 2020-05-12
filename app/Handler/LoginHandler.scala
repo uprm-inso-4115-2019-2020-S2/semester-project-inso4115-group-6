@@ -1,4 +1,7 @@
+package Handler
+
 import scala.collection.mutable.Map
+import DAO.UsersDAO
 
 case class UsersHandler() {
   def buildUsersDict(row: Array[Any]): Map[String,Any] = {

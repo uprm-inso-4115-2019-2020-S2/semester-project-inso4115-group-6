@@ -1,9 +1,11 @@
+package DAO
+
 import java.sql.{Connection, DriverManager, PreparedStatement, ResultSet, SQLException}
 
 case class UsersDAO() {
   //setup connection to DB
   val dbName = "user"
-  val hostname = "com.mysql.jdbc.Driver"
+  val driver = "com.mysql.jdbc.Driver"
 
   val url ="jdbc:mysql://localhost:3306/cashforchoresdb?autoReconnect=true&useSSL=false" //link to db or file path to db
   val usernameDB = "root" //username to connect to db
@@ -11,16 +13,90 @@ case class UsersDAO() {
 
   var connection:Connection = null
 
-
   try {
     //connection
-    Class.forName(hostname)
+    Class.forName(driver)
     this.connection = DriverManager.getConnection(url, usernameDB, passwordDB)
   }
   catch {
     case e: ClassNotFoundException => e.printStackTrace();
     case e: SQLException => e.printStackTrace();
   }
+  // TODO: Location & Work Types for Service Provider
+  def createUser(fname: String, lname: String, phone: String, upass: String, email: String, provider: Boolean): Any = {
+    // Declare Prepared Statements
+    var stmtInsertUser: PreparedStatement = null
+    var stmtGetUser: PreparedStatement = null
+    var stmtInsertContactInfo: PreparedStatement = null
+    var stmtInsertType: PreparedStatement = null
+    // Query strings
+    val insertUserQ: String = "INSERT INTO cashforchoresdb.user (uemail, isCustomer, upass) VALUES(?, ?, ?);"
+    val getUserQ: String = "SELECT uid FROM cashforchoresdb.user WHERE uemail=? AND upass=?;"
+    val insertContactInfoQ: String = "INSERT INTO cashforchoresdb.contactinformation (firstname, middlename, lastname, gender, phoneNumber, Address, uid) VALUES(?, ?, ?, ?, ?, ?, ?);"
+    // Prepare statements
+    stmtInsertUser = this.connection.prepareStatement(insertUserQ)
+    stmtGetUser = this.connection.prepareStatement(getUserQ)
+    stmtInsertContactInfo = this.connection.prepareStatement(insertContactInfoQ)
+
+    // Set Values for User Insert on User Table
+    stmtInsertUser.setString(1, email)
+    stmtInsertUser.setInt(2, if(provider) 1 else 0)
+    stmtInsertUser.setString(3, upass)
+    // Set Values to get User ID
+    stmtGetUser.setString(1, email)
+    stmtGetUser.setString(2, upass)
+
+    // Execute Queries as a Transaction
+    try {
+      this.connection.setAutoCommit(false)
+      // Insert User
+      stmtInsertUser.executeUpdate()
+      // Get User ID
+      var rs: ResultSet = stmtGetUser.executeQuery()
+      rs.next()
+      val userId = rs.getInt("uid")
+
+      // Set Values to Insert Contact Information
+      stmtInsertContactInfo.setString(1, fname)
+      stmtInsertContactInfo.setString(2, "")
+      stmtInsertContactInfo.setString(3, lname)
+      stmtInsertContactInfo.setString(4, "")
+      stmtInsertContactInfo.setString(5, phone)
+      stmtInsertContactInfo.setString(6, "")
+      stmtInsertContactInfo.setInt(7, userId)
+      // Insert Contact Info
+      stmtInsertContactInfo.executeUpdate()
+
+      // Prepare a Final statement to Identify user Type
+      var userTypeQuery = ""
+      if(provider) {
+        userTypeQuery = "INSERT INTO cashforchoresdb.serviceprovider (uid,serviceDescription) VALUES(?,?);"
+        // Prepare Statement
+        stmtInsertType = this.connection.prepareStatement(userTypeQuery)
+        stmtInsertType.setInt(1,userId)
+        stmtInsertType.setString(2,"")
+      } else {
+        userTypeQuery = "INSERT INTO cashforchoresdb.customer (uid) VALUES(?);"
+        // Prepare Statement
+        stmtInsertType = this.connection.prepareStatement(userTypeQuery)
+        stmtInsertType.setInt(1,userId)
+      }
+      // Insert User Type
+      stmtInsertType.executeUpdate()
+
+      this.connection.commit()
+    } catch {
+      case error: SQLException => {
+        this.connection.rollback()
+        error.printStackTrace()
+        // TODO: Let user know that something went wrong
+      }
+    } finally {
+      this.connection.setAutoCommit(true)
+      this.connection.close()
+    }
+  }
+
 
   def confirmUser(uname: String,upass: String): Any ={
     //prepared statement
