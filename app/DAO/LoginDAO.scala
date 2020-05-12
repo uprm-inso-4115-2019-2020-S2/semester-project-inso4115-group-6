@@ -6,8 +6,8 @@ case class UsersDAO() {
   val hostname = "com.mysql.jdbc.Driver"
 
   val url ="jdbc:mysql://localhost:3306/cashforchoresdb?autoReconnect=true&useSSL=false" //link to db or file path to db
-  val usernameDB = "christian" //username to connect to db
-  val passwordDB = "9696" // password for user to connect to db
+  val usernameDB = "root" //username to connect to db
+  val passwordDB = "Password" // password for user to connect to db
 
   var connection:Connection = null
 
