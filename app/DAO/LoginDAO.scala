@@ -23,7 +23,7 @@ case class UsersDAO() {
     case e: SQLException => e.printStackTrace();
   }
   // TODO: Location & Work Types for Service Provider
-  def createUser(fname: String, lname: String, phone: String, upass: String, email: String, provider: Boolean): Any = {
+  def createUser(fname: String, lname: String, phone: String, upass: String, email: String, provider: Boolean, job: String): Any = {
     // Declare Prepared Statements
     var stmtInsertUser: PreparedStatement = null
     var stmtGetUser: PreparedStatement = null
@@ -70,11 +70,12 @@ case class UsersDAO() {
       // Prepare a Final statement to Identify user Type
       var userTypeQuery = ""
       if(provider) {
-        userTypeQuery = "INSERT INTO cashforchoresdb.serviceprovider (uid,serviceDescription) VALUES(?,?);"
+        userTypeQuery = "INSERT INTO cashforchoresdb.serviceprovider (uid,serviceDescription,servicetype) VALUES(?,?,?);"
         // Prepare Statement
         stmtInsertType = this.connection.prepareStatement(userTypeQuery)
         stmtInsertType.setInt(1,userId)
         stmtInsertType.setString(2,"")
+        stmtInsertType.setString(3,job)
       } else {
         userTypeQuery = "INSERT INTO cashforchoresdb.customer (uid) VALUES(?);"
         // Prepare Statement

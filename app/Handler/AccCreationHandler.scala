@@ -17,9 +17,10 @@ class AccCreationHandler {
       val phone = user.phone
       val upass = user.password
       val email = user.email
-      if (!fname.isEmpty && !lname.isEmpty && !phone.isEmpty && !upass.isEmpty && !email.isEmpty) {
+      val job = user.job
+      if (!fname.isEmpty && !lname.isEmpty && !phone.isEmpty && !upass.isEmpty && !email.isEmpty && !job.isEmpty) {
         val dao = UsersDAO() // to be implemented
-        val result = dao.createUser(fname, lname, phone, upass, email, provider) // will return userID
+        val result = dao.createUser(fname, lname, phone, upass, email, provider, job) // will return userID
         if (result.getClass.getSimpleName == "Integer") {
           return "Account Creation Successful"
         }

@@ -16,7 +16,7 @@
 
             <div class="wrapper">
                 <div class="logo">
-                    <img src="@routes.Assets.versioned("images/CashBackground.jpg")" style="width: 200px;" alt="">
+                    <img src="@routes.Assets.versioned("images/CashBackground.jpg")" style="width: 190px; height: 160px" alt="">
                 </div>
 
                 <div class="gettingstarted">
@@ -61,6 +61,25 @@
                         @helper.inputText(
                             userForm("email"),
                             args = Symbol("placeholder") -> "Enter Email",
+                            Symbol("class") -> "input_field"
+                        )
+
+                        @helper.select(
+                            userForm("job"),
+                            options = Seq(
+                               "wash" -> "Car wash",
+                                "landscape"-> "Landscaping",
+                                "housekeep"-> "Housekeeping",
+                                "housepaint"-> "House painting",
+                                "move"->"Movers",
+                                "food"->"Food delivery",
+                                "equiprepair"->"Equipment repair",
+                                "seam"->"Seamstress" ,
+                                "cab"->"Cab Driver",
+                                "plumber"->"Plumber",
+                                "pet"->"Pet Babysitting" ),
+                            Symbol("label") -> "Select Job",
+                            Symbol("default") -> "Select Job",
                             Symbol("class") -> "input_field"
                         )
 
