@@ -15,7 +15,9 @@ class ProfileSettingsController @Inject()(val controllerComponents: ControllerCo
    * Action to create Profile HTML file
    */
   def profileSettings() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.profilesettings())
-  }
+    request.session.get("connected").map {
+      user => Ok(views.html.profilesettings())}.getOrElse {
+      Unauthorized("You are not connected")
+    }  }
 
 }

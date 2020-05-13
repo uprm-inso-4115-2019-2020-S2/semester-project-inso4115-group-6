@@ -11,6 +11,7 @@ POST    /creation/work                     controllers.CreationController.create
 GET     /creation/hire                     controllers.CreationController.hire()
 
 GET     /profile                           controllers.ProfileController.profile()
+GET     /loggedout                             controllers.ProfileController.logout() #This route throws back to /login
 
 # Login page route
 GET     /login                      controllers.LoginController.login()

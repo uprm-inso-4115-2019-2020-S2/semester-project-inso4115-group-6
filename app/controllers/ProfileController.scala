@@ -15,7 +15,14 @@ class ProfileController @Inject()(val controllerComponents: ControllerComponents
    * Action to create Profile HTML file
    */
   def profile() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.profile())
+    request.session.get("connected").map {
+      user => Ok(views.html.profile())}.getOrElse {
+      Unauthorized("You are not connected")
+    }
+  }
+
+  def logout() = Action { implicit  request =>
+    Redirect(routes.LoginController.login).withNewSession
   }
 
 }

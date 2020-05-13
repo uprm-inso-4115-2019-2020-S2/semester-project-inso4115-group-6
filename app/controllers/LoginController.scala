@@ -43,27 +43,6 @@ class LoginController @Inject()(cc : MessagesControllerComponents) extends Messa
   private val postUrl = routes.LoginController.validateLoginUser()
   private val handler = UsersHandler()
 
-//  def validateLoginUser = Action { implicit request =>
-//    val formValidationResult = userFormData.bindFromRequest()
-//    if (formValidationResult.hasErrors) {
-//      BadRequest(views.html.login(formValidationResult, postUrl))
-//    }
-//      val successFunction = { userData: User =>
-//        val currentUser = User(
-//          email = userData.email,
-//          password = userData.password)
-//        val buildUserDict = handler.buildLoginDict(Array(currentUser.email, currentUser.password))
-//        val confirmUser = handler.login(buildUserDict)
-//        if (confirmUser) {
-//          Redirect(routes.ProfileController.profile()).withSession("connected" -> currentUser.email)
-//        }
-//        else {
-//          Ok(views.html.login(userFormData, postUrl)).flashing("Incorrect" -> "Credentials are incorrect")
-//        }
-//      }
-//  }
-//}
-
   def validateLoginUser = Action { implicit request =>
   val errorFunction = { formWithErrors: Form[User] =>
     BadRequest(views.html.login(formWithErrors, postUrl))
@@ -77,8 +56,7 @@ class LoginController @Inject()(cc : MessagesControllerComponents) extends Messa
       val confirmUser = handler.login(buildUserDict)
       if (confirmUser) {
         Redirect(routes.ProfileController.profile()).withSession("connected" -> user.email)
-      }
-      else {
+      } else {
         Redirect(routes.LoginController.login()).flashing("Incorrect" -> "Credentials are incorrect")
       }
     }
