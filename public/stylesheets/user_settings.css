@@ -1,18 +1,11 @@
-. user-settings {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #FFC040;
-}
-
 .main-bar{
     position:relative;
     bottom: 42px;
     right: 20px;
     width: 105%;
-    background-color: #FFCC67;
+    background-color: #399cff;
+    color:#ffffff;
     border-radius: 25px;
-    color:#f2f2f2;
     text-align:center;
 
 }
@@ -24,7 +17,7 @@
     float: center;
     padding: 20px;
     width: 50%;
-    background-color: #99A09F;
+    background-color: #bcddff;
     border-radius: 25px;
 }
 

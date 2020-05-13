@@ -1,3 +1,5 @@
+
+
 name := """cashforchores"""
 organization := "teamsix"
 
@@ -8,7 +10,15 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 scalaVersion := "2.13.1"
 
 libraryDependencies += guice
+libraryDependencies ++= Seq(jdbc)
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test
+libraryDependencies ++= Seq("mysql" % "mysql-connector-java" % "5.1.+")
+libraryDependencies += "org.scala-js" %% "scalajs-env-jsdom-nodejs" % "1.0.0"
+
+enablePlugins(ScalaJSPlugin)
+
+// This is an application with a main method
+scalaJSUseMainModuleInitializer := true
 
 // Adds additional packages into Twirl
 //TwirlKeys.templateImports += "teamsix.controllers._"

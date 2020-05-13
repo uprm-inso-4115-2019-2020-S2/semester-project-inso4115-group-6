@@ -4,7 +4,7 @@ body {
 }
 
 .topnav {
-    background-color: #FFCC67;
+    background-color: #399cff;
     position: relative;
     width: 100%;
 }
@@ -15,9 +15,7 @@ body {
 }
 
 .topnav a {
-    color: #f2f2f2;
     width: 100%;
-    min-width:980px;
     text-align: center;
     text-decoration: none;
     font-size: 25px;
@@ -27,7 +25,6 @@ body {
 }
 
 .topnav h {
-    color: #f2f2f2;
     padding: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -41,20 +38,22 @@ body {
     margin-right: 25px;
     font-size: 15px;
     border-radius: 25px;
-    width: 15%;
+    width: 20%;
     margin-top: 1.95%;
     position: relative;
 }
 
 .toolbar-btn{
-    background-color: #FFCC67;
+    background-color: #399cff;
     color: white;
+    border: none;
     padding: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 25px;
     margin-top: 10%;
-    border: none;
+    font-size: 25px;
+    min-width: 195px;
+    max-width: 195px;
 }
 
 .settings-dropdown {
@@ -66,8 +65,8 @@ body {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
-    min-width: 175px;
-    max-width: 175px;
+    min-width: 195px;
+    max-width: 195px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
@@ -80,10 +79,12 @@ body {
     text-decoration: none;
     display: block;
     text-align: left;
+    min-width: 195px;
+    max-width: 195px;
 }
 
 /* Change color of dropdown links on hover */
-.settings-content a:hover {background-color: #ddd;}
+.settings-content a:hover { background-color: #ddd; }
 
 .settings-content a{
     font-size: 15px;
@@ -94,9 +95,9 @@ body {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .topnav a:hover, .settings-dropdown:hover .toolbar-btn {
-    background-color: #FFC040;
-    min-width: 175px;
-    max-width: 175px;
+    background-color: #6fb7ff;
+    min-width: 195px;
+    max-width: 195px;
 }
 
 .grid-container{
@@ -119,7 +120,7 @@ body {
 
 .user-photo{
     grid-column: 1 / 2;
-    background-color: #adb5bd;
+    background-color: #bcddff;
     display: inline-block;
     padding-top: 15px;
 }
@@ -151,7 +152,7 @@ body {
 
 .user-info{
     grid-column: 2 / 5;
-    background-color: #adb5bd;
+    background-color: #bcddff;
 }
 
 .user-info table {
@@ -166,13 +167,13 @@ body {
 
 .services-description{
     grid-column: 1 / 5;
-    background-color: #adb5bd;
+    background-color: #bcddff;
     padding: 20px;
 }
 
 .services-photos{
     grid-column: 1 / 5;
-    background-color: #adb5bd;
+    background-color: #bcddff;
     padding: 5px 20px 20px 20px;
 }
 
