@@ -23,7 +23,7 @@ case class UsersDAO() {
     case e: SQLException => e.printStackTrace();
   }
   // TODO: Location & Work Types for Service Provider
-  def createUser(fname: String, lname: String, phone: String, upass: String, email: String, provider: Boolean, job: String): Any = {
+  def createUser(fname: String, lname: String, phone: String, upass: String, email: String, isCustomer: Boolean, job: String): Any = {
     // Declare Prepared Statements
     var stmtInsertUser: PreparedStatement = null
     var stmtGetUser: PreparedStatement = null
@@ -40,7 +40,7 @@ case class UsersDAO() {
 
     // Set Values for User Insert on User Table
     stmtInsertUser.setString(1, email)
-    stmtInsertUser.setInt(2, if(provider) 1 else 0)
+    stmtInsertUser.setInt(2, if(isCustomer) 1 else 0)
     stmtInsertUser.setString(3, upass)
     // Set Values to get User ID
     stmtGetUser.setString(1, email)
@@ -69,18 +69,18 @@ case class UsersDAO() {
 
       // Prepare a Final statement to Identify user Type
       var userTypeQuery = ""
-      if(provider) {
+      if(isCustomer) {
+        userTypeQuery = "INSERT INTO cashforchoresdb.customer (uid) VALUES(?);"
+        // Prepare Statement
+        stmtInsertType = this.connection.prepareStatement(userTypeQuery)
+        stmtInsertType.setInt(1,userId)
+      } else {
         userTypeQuery = "INSERT INTO cashforchoresdb.serviceprovider (uid,serviceDescription,servicetype) VALUES(?,?,?);"
         // Prepare Statement
         stmtInsertType = this.connection.prepareStatement(userTypeQuery)
         stmtInsertType.setInt(1,userId)
         stmtInsertType.setString(2,"")
         stmtInsertType.setString(3,job)
-      } else {
-        userTypeQuery = "INSERT INTO cashforchoresdb.customer (uid) VALUES(?);"
-        // Prepare Statement
-        stmtInsertType = this.connection.prepareStatement(userTypeQuery)
-        stmtInsertType.setInt(1,userId)
       }
       // Insert User Type
       stmtInsertType.executeUpdate()

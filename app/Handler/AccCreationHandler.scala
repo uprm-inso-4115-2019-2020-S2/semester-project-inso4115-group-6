@@ -11,7 +11,7 @@ import controllers.UserData
 
 class AccCreationHandler {
 
-  def createAccount(user: UserData, provider: Boolean): String = {
+  def createAccount(user: UserData, isCustomer: Boolean): String = {
       val fname = user.firstname
       val lname = user.lastname
       val phone = user.phone
@@ -20,7 +20,7 @@ class AccCreationHandler {
       val job = user.job
       if (!fname.isEmpty && !lname.isEmpty && !phone.isEmpty && !upass.isEmpty && !email.isEmpty && !job.isEmpty) {
         val dao = UsersDAO() // to be implemented
-        val result = dao.createUser(fname, lname, phone, upass, email, provider, job) // will return userID
+        val result = dao.createUser(fname, lname, phone, upass, email, isCustomer, job) // will return userID
         if (result.getClass.getSimpleName == "Integer") {
           return "Account Creation Successful"
         }

@@ -21,7 +21,7 @@ class CreationController @Inject()(cc: MessagesControllerComponents) extends Mes
       "firstname" -> nonEmptyText,
       "lastname"  -> nonEmptyText,
       "phone" -> nonEmptyText,
-      "password" -> text(minLength = 8),
+      "password" -> text(minLength = 8, maxLength = 12),
       "email" -> email,
       "job"-> default(nonEmptyText, "NA")
     )(UserData.apply)(UserData.unapply)
