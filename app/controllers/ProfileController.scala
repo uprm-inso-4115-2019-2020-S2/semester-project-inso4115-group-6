@@ -20,8 +20,15 @@ class ProfileController @Inject()(val controllerComponents: ControllerComponents
   /**
    * Action to create Profile HTML file
    */
-  def profile() = Action { implicit request =>
-    Ok(views.html.profile())
+  def profile() = Action { implicit request: Request[AnyContent] =>
+    request.session.get("connected").map {
+      user => Ok(views.html.profile())}.getOrElse {
+      Unauthorized("You are not connected")
+    }
+  }
+
+  def logout() = Action { implicit  request =>
+    Redirect(routes.LoginController.login).withNewSession
   }
 
   //Ideally we want to use the app's login controller to redirect from the profile page to the login page

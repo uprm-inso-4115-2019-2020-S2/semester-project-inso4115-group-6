@@ -99,15 +99,15 @@ case class UsersDAO() {
   }
 
 
-  def confirmUser(uname: String,upass: String): Any ={
+  def confirmUser(email: String, upass: String): Any ={
     //prepared statement
     var checkUser: PreparedStatement = null;
     //actual query
     val checkString = "SELECT uid FROM " +
-      dbName + " WHERE username=? AND password=?"
+      dbName + " WHERE uemail=? AND upass=?"
     checkUser = this.connection.prepareStatement(checkString)
     //feeding username and password to statement.
-    checkUser.setString(1, uname)
+    checkUser.setString(1, email)
     checkUser.setString(2, upass)
     val resultSet: ResultSet = checkUser.executeQuery()
     while(resultSet.next()){
@@ -119,7 +119,7 @@ case class UsersDAO() {
         return None
       }
     }
-    }
+  }
 
 
   def getUserById(uid: Int): Array[Any] ={

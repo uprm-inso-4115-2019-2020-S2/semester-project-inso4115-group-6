@@ -53,7 +53,7 @@ class CreationController @Inject()(cc: MessagesControllerComponents) extends Mes
         email = userData.email,
         job = userData.job
       )
-      accHandler.createAccount(user, if(user.job =="NA") false else true )
+      accHandler.createAccount(user, if(user.job =="NA") true else false )
       Redirect(routes.CreationController.loadWorkView())
 
     }

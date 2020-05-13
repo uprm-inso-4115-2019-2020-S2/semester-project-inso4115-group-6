@@ -24,7 +24,7 @@ case class ImagesHandler() {
 
   }
 
-  def uploadImage(imgPath: String): Unit = {
+  def uploadImage(imgPath: String, userId: Int, isPf: Boolean): Unit = {
 
     // Not sure how to implement receiving the image from the controller
     // But the idea is that this function receives the image path and
@@ -32,7 +32,7 @@ case class ImagesHandler() {
 
     val imageString = encodeImage(imgPath)
     val dao = ImagesDAO()
-    val result = dao.uploadImage(imageString, null, null)
+    val result = dao.uploadImage(imageString, userId, isPf)
 
   }
 
@@ -44,7 +44,7 @@ case class ImagesHandler() {
   }
 
 
-  def encodeImage(imgPath: String): String = {
+  def encodeImage(imgPath: String): FileInputStream = {
 
     val imageStream = new FileInputStream(imgPath)
     // get byte array from image stream
@@ -52,7 +52,7 @@ case class ImagesHandler() {
     // encode the image
     val imageString = Base64.getEncoder.encodeToString(byteArr)
 
-    imageString
+    imageStream
   }
 
 

@@ -1,5 +1,6 @@
 package DAO
 
+import java.io.FileInputStream
 import java.sql.{Connection, DriverManager, PreparedStatement, ResultSet, SQLException}
 
 case class ImagesDAO() {
@@ -22,25 +23,24 @@ case class ImagesDAO() {
 
 
   
-  def uploadImage(imgString: String, user_id: Int, is_profilepic: Boolean): Unit = {
-
+  def uploadImage(imgString: FileInputStream, user_id: Int, is_profilepic: Boolean): Unit = {
+    this.connection.setAutoCommit(false)
     var conn: PreparedStatement = null
 
     // may need to change names to match those in db
-    val query = "INSERT INTO images (img_string, user_id, is_profilepic) VALUES (?, ?, ?); SELECT LAST_INSERT_ID()"
-
-    conn = this.connection.prepareStatement(query)
-    conn.setString(1, imgString)
+    val query1 = "INSERT INTO cashforchoresdb.pictures (pBlob, uid, isProfilePicture) VALUES (?, ?, ?);"
+    val query2 = "SELECT LAST_INSERT_ID()"
+    conn = this.connection.prepareStatement(query1)
+    conn.setBlob(1, imgString)
     conn.setInt(2, user_id)
     conn.setBoolean(3, is_profilepic)
 
-    val resultSet: ResultSet = conn.executeQuery()
-    val result = resultSet.getInt("img_id")
+    val resultSet: Int = conn.executeUpdate()
 
-    if(result > 0)
+    if(resultSet > 0)
       this.connection.commit()
 
-    result
+    resultSet
 
   }
 
