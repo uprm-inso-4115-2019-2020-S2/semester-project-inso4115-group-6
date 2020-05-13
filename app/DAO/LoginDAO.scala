@@ -29,7 +29,7 @@ case class UsersDAO() {
     var checkUser: PreparedStatement = null;
     //actual query
     val checkString = "SELECT uid FROM " +
-      dbName + " WHERE email=? AND password=?"
+      dbName + " WHERE uemail=? AND upass=?"
     checkUser = this.connection.prepareStatement(checkString)
     //feeding username and password to statement.
     checkUser.setString(1, email)
