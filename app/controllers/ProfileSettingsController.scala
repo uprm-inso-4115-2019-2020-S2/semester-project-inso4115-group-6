@@ -2,19 +2,15 @@ package controllers
 
 import java.io.File
 
+import javax.imageio.ImageIO
 import javax.inject._
 import play.api.mvc._
+import _root_.Handler.ImagesHandler
 
-/**
- * This controller creates an `Action` to handle HTTP requests to the
- * application's home page.
- */
 @Singleton
 class ProfileSettingsController @Inject()(val controllerComponents: ControllerComponents) extends BaseController {
+  val pictureHandler = new ImagesHandler()
 
-  /**
-   * Action to create Profile HTML file
-   */
   def profileSettings() = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.profilesettings())
   }

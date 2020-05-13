@@ -3,14 +3,17 @@
 # https://www.playframework.com/documentation/latest/ScalaRouting
 # ~~~~
 
+<<<<<<< HEAD
 # An example controller showing a sample home page
 GET     /                                  controllers.LoginController.login()
 GET     /creation/work                     controllers.CreationController.work()
+=======
+# Account Creation routes
+GET     /creation/work                     controllers.CreationController.loadWorkView()
+>>>>>>> b20c5265df3e92759b29a7aee9d6c92a49cfc2a0
 POST    /creation/work                     controllers.CreationController.createUser()
 
-GET     /creation/hire                     controllers.CreationController.hire()
-
-GET     /profile                           controllers.ProfileController.profile()
+GET     /creation/hire                     controllers.CreationController.loadHireView()
 
 # Login page route
 GET     /login                             controllers.LoginController.login()
@@ -21,6 +24,12 @@ GET     /assets/*file                      controllers.Assets.versioned(path="/p
 
 #Profile settings
 GET     /profile-settings                  controllers.ProfileSettingsController.profileSettings()
+<<<<<<< HEAD
+=======
+
+# Profile
+GET     /profile                           controllers.ProfileController.profile()
+>>>>>>> b20c5265df3e92759b29a7aee9d6c92a49cfc2a0
 
 POST    /updateProfilePicture              controllers.ProfileSettingsController.updateProfilePic
 #POST   /uploadPicture                     controllers.ProfileController.upload

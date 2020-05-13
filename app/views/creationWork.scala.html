@@ -16,7 +16,7 @@
 
             <div class="wrapper">
                 <div class="logo">
-                    <img src="@routes.Assets.versioned("images/CashBackground.jpg")" style="width: 200px;" alt="">
+                    <img src="@routes.Assets.versioned("images/CashBackground.jpg")" style="width: 190px; height: 160px" alt="">
                 </div>
 
                 <div class="gettingstarted">
@@ -26,7 +26,7 @@
 
                 <div class="typeOfAccount">
 
-                    <div id="btn"> </div>
+                    <div id="btnWork"> </div>
                     <button type= "button" class= "toggle-btn" onclick="freelancer()">Work As Freelancer</button>
                     <button type= "button" class= "toggle-btn" onclick="hire()">Hire For Project</button>
                 </div>
@@ -64,6 +64,25 @@
                             Symbol("class") -> "input_field"
                         )
 
+                        @helper.select(
+                            userForm("job"),
+                            options = Seq(
+                               "wash" -> "Car wash",
+                                "landscape"-> "Landscaping",
+                                "housekeep"-> "Housekeeping",
+                                "housepaint"-> "House painting",
+                                "move"->"Movers",
+                                "food"->"Food delivery",
+                                "equiprepair"->"Equipment repair",
+                                "seam"->"Seamstress" ,
+                                "cab"->"Cab Driver",
+                                "plumber"->"Plumber",
+                                "pet"->"Pet Babysitting" ),
+                            Symbol("label") -> "Select Job",
+                            Symbol("default") -> "Select Job",
+                            Symbol("class") -> "input_field"
+                        )
+
                         <button type="submit" class="next-btn" >Next </button>
 
                     </div>
@@ -74,7 +93,7 @@
 
         <script>
 
-        var z = document.getElementById("btn");
+        var z = document.getElementById("btnWork");
 
         function hire() {
             z.style.left = "150px";
