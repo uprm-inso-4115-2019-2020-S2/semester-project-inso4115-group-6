@@ -27,9 +27,6 @@ class ProfileController @Inject()(val controllerComponents: ControllerComponents
   //Ideally we want to use the app's login controller to redirect from the profile page to the login page
   //It should be changed once login controller is available
   //HomeController was used for testing this feature, but it is not important
-  def logout() = Action {
-    Redirect(routes.HomeController.index()).withNewSession
-  }
 
   def upload = Action(parse.multipartFormData) { request =>
     request.body

@@ -1,0 +1,69 @@
+@(userFormData: Form[User], postUrl: Call)(implicit request: MessagesRequestHeader)
+@import helper._
+
+@implicitField = @{FieldConstructor(inputFieldHelper.render)}
+<html>
+
+    <head>
+        <title>Cash For Chores</title>
+        <link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/acc_login.css")">
+    </head>
+
+    <body>
+        <div class="hero">
+
+            <div class="wrapper">
+                <div class="logo">
+                    <img src="@routes.Assets.versioned("images/CashBackground.jpg")" style="width: 200px;" alt="">
+                </div>
+
+                <div class="gettingstarted">
+                    <h1>Getting Started</h1>
+                    <a style="font-size: 15px;" href="@routes.CreationController.hire()">Don't have an account? Register
+                        here</a>
+                </div>
+
+                @helper.form(postUrl, args = Symbol("id") -> "login"){
+                    <div class="information">
+                        @helper.CSRF.formField
+
+                        @helper.inputText(
+                            userFormData("email"),
+                            args = Symbol("placeholder") -> "Email",
+                            Symbol("class") -> "input_field"
+                        )
+
+                        @helper.inputPassword(
+                            userFormData("password"),
+                            args = Symbol("placeholder") -> "Password",
+                            Symbol("class") -> "input_field"
+                        )
+
+                        <button type="submit" class="next-btn" >Login</button>
+
+                    </div>
+                }
+
+
+            </div>
+        </div>
+
+        <!-- <script>
+
+            var z = document.getElementById("btn");
+
+            function hire(){
+                z.style.left = "150px";
+                window.location.href = "http://localhost:9000/creation/hire"
+            }
+
+            function freelancer(){
+                z.style.left = "0px";
+                window.location.href = "http://localhost:9000/creation/work"
+            }
+
+        </script> -->
+
+    </body>
+
+</html>

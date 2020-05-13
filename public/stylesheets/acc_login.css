@@ -1,0 +1,105 @@
+html, body, footer {
+    margin: 0;
+    padding: 0;
+}
+
+.hero{
+    height: 100%; /*was 100%*/
+    width: 100%;
+    background-image:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)) , url(WoodBackground.jpg);
+    background-position: center;
+    background-size: 100%;
+    position: absolute;
+    text-align: center;
+}
+
+.logo {
+    height: 25%;
+}
+
+.gettingstarted h1{
+    margin: 5px;
+}
+
+.input_field{
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #999;
+    outline: none;
+    background: transparent;
+}
+
+.wrapper{
+    display: inline-block;
+    width: 380px;
+    height: auto;
+    margin-top: 20px;
+    position: relative;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #fff;
+    font-family: Arial;
+    overflow: hidden;
+}
+
+.typeOfAccount{
+    width: 320px;
+    height: 50px;
+    margin: 30px auto;
+    position: relative;
+    box-shadow: 0 0 10px 9px #FAF677;
+    border-radius: 30px;
+}
+
+
+.toggle-btn{
+    padding: 15px 25px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+}
+
+#btn{
+    top:0;
+    left: 0;
+    position: absolute;
+    width: 170px;
+    height: 50px;
+    background: linear-gradient(to right, #32CD32 , #FAF677);
+    border-radius: 30px;
+    transition: 0.5s;
+}
+
+.inputgroup{
+    top:180px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+}
+
+.next-btn{
+    width: 50%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right, #32CD32 , #FAF677);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+}
+
+.errors {
+    font-family: Arial;
+    color: red;
+    font-size: 9px;
+}
+
+input#email.input_field {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
